@@ -6,7 +6,7 @@ fs.readFile("input.txt", "utf8", (err, data) => {
     return;
   }
 
-  const words = data.trim().split(/\s+/).length;
+  const words = data.trim().split(" ").length;
 
   fs.writeFile("wordCount.txt", `Word Count: ${words}`, (err) => {
     if (err) console.error(err);
