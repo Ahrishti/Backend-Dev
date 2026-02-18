@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Details</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<h2>Employee Details</h2>
+
+<!-- 🔍 SEARCH + ADD USER (XD STYLE) -->
+<div class="top-bar">
+  <input type="text" id="searchInput" placeholder="Search">
+  <a href="/add" class="add-btn">+ Add User</a>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>NAME</th>
+      <th>DEPARTMENT</th>
+      <th>SALARY</th>
+      <th>TAX (10%)</th>
+      <th>NET SALARY</th>
+      <th>ACTIONS</th>
+    </tr>
+  </thead>
+
+  <tbody id="tableBody">
+    <% employees.forEach(emp => {
+      const tax = emp.salary * 0.10;
+      const net = emp.salary - tax;
+    %>
+    <tr>
+      <!-- 👤 PROFILE IMAGE + NAME -->
+      <td class="name-cell">
+        <img src="/images/avatar.png" class="profile-pic">
+        <%= emp.name %>
+      </td>
+
+      <td><%= emp.department %></td>
+      <td>₹ <%= emp.salary %></td>
+      <td>₹ <%= tax %></td>
+      <td>₹ <%= net %></td>
+
+      <td class="actions">
+        <a href="/edit/<%= emp.id %>">✏️</a>
+        <a href="/delete/<%= emp.id %>">🗑️</a>
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<!-- 🔍 SEARCH SCRIPT -->
+<script>
+  const searchInput = document.getElementById("searchInput");
+  searchInput.addEventListener("keyup", function () {
+    const value = this.value.toLowerCase();
+    document.querySelectorAll("#tableBody tr").forEach(row => {
+      row.style.display = row.innerText.toLowerCase().includes(value)
+        ? ""
+        : "none";
+    });
+  });
+</script>
+
+</body>
+</html>

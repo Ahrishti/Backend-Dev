@@ -1,0 +1,23 @@
+[
+  {
+    "id": 2,
+    "name": "Shristi Agarwal",
+    "department": "CS",
+    "salary": 100000000,
+    "image": "/images/female.png"
+  },
+  {
+    "id": 1771408735449,
+    "name": "Shristi Agarwal",
+    "department": "cs",
+    "salary": 23445,
+    "image": "/images/female.png"
+  },
+  {
+    "id": 1771409093178,
+    "name": "Shristi Agarwal",
+    "department": "cs",
+    "salary": 300000,
+    "image": "/images/female.png"
+  }
+]
